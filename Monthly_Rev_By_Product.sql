@@ -4,7 +4,7 @@
 -- 1. How much revenue does each product usually generate each month?
 -- 2. Which product had the most success throughout all of last year?
 -- 3. Did either product fluctuate greatly each month or was the month-to-month trend fairly consistent?
--- Example of using a CTE to calculate the SUM and consequently the MIN, the MAX, the AVG, and the STDDEV
+-- Example of using a CTE to calculate the SUM and subsequently the MIN, the MAX, the AVG, and the STDDEV
 
 -- Create MonthlyProduct CTE
 WITH MonthlyProduct AS (
