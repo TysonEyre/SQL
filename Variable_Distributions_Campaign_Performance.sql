@@ -5,10 +5,10 @@
 
 -- Create USER_LINK_CLICKS CTE
 WITH USER_LINK_CLICKS AS (
-    -- SELECT USERID and a COUNT of EVENTID aliased as NUM_LINK_CLICKS
+    -- SELECT USERID and a COUNT of everything aliased as NUM_LINK_CLICKS
     SELECT 
         USERID, 
-        COUNT(EVENTID) AS NUM_LINK_CLICKS
+        COUNT(*) AS NUM_LINK_CLICKS
     FROM frontendeventlog
     -- FILTER results by the EVENTID = 5 meaning the user reached a unique landing page only accessbile through campaign email
     WHERE EVENTID = 5
