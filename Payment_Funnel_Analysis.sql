@@ -12,10 +12,10 @@ WITH maxstatusreached AS (
 	GROUP BY subscriptionid
 )
 ,
--- Create 2nd CTE paymentfunnelstages which joins CTE maxstatusreached to the subscriptions table and maps status IDs to business user text.
+-- Create 2nd CTE paymentfunnelstages which joins CTE maxstatusreached to the subscriptions table and maps status IDs to business acumen
 paymentfunnelstages AS (
 	SELECT s.subscriptionid,
-        -- CASE statements to map IDs to Business User-Friendly Text
+        -- CASE statements to map IDs to Business Acumen
 	    case when maxstatus = 1 then 'PaymentWidgetOpened'
 			when maxstatus = 2 then 'PaymentEntered'
 			when maxstatus = 3 and currentstatus = 0 then 'User Error with Payment Submission'
