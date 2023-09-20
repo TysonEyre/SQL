@@ -1,0 +1,21 @@
+-- Example SQL combining multiple tables using UNION
+-- Business Case: Combining 2 Product Tables into 1. The Chief Growth Officer wants to reduce customer churn, she reaches out wanting to know when all active subscriptions will expire. Products are split into 2 tables. 
+-- COUNT Active Subscriptions for both products in one table
+
+With all_subscriptions as(
+	select *
+	from subscriptionsproduct1
+	where active = 1
+	--UNION subscriptions tables here
+	union
+	select *
+	from subscriptionsproduct2
+	where active = 1
+)
+select
+	date_trunc('year', expirationdate) as exp_year, 
+	count(*) as subscriptions
+from 
+	all_subscriptions
+group by 
+	date_trunc('year', expirationdate)
