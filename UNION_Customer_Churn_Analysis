@@ -3,12 +3,16 @@
 -- COUNT Active Subscriptions for both products in one table
 
 With all_subscriptions as(
-	select *
+	select 
+        subscriptionid, 
+        expirationdate
 	from subscriptionsproduct1
 	where active = 1
 	--UNION subscriptions tables here
 	union
-	select *
+	select
+        subscriptionid, 
+        expirationdate
 	from subscriptionsproduct2
 	where active = 1
 )
